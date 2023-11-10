@@ -14,6 +14,64 @@ import {
   TableContainer,
   Checkbox,
 } from "@chakra-ui/react";
+import { CheckIcon, CloseIcon, InfoIcon } from "@chakra-ui/icons";
+
+const tableData = [
+  {
+    checked: true,
+    label: "millimetres (mm)",
+    multiplier: 25.4,
+    icon: <CloseIcon />,
+  },
+  {
+    checked: false,
+    label: "centimetres (cm)",
+    multiplier: 30.48,
+    icon: <InfoIcon />,
+  },
+  {
+    checked: false,
+    label: "metres (m)",
+    multiplier: 0.91444,
+    icon: <CheckIcon />,
+  },
+  {
+    checked: true,
+    label: "millimetres (mm)",
+    multiplier: 25.4,
+    icon: <CloseIcon />,
+  },
+  {
+    checked: false,
+    label: "centimetres (cm)",
+    multiplier: 30.48,
+    icon: <InfoIcon />,
+  },
+  {
+    checked: false,
+    label: "metres (m)",
+    multiplier: 0.91444,
+    icon: <CheckIcon />,
+  },
+  {
+    checked: true,
+    label: "millimetres (mm)",
+    multiplier: 25.4,
+    icon: <CloseIcon />,
+  },
+  {
+    checked: false,
+    label: "centimetres (cm)",
+    multiplier: 30.48,
+    icon: <InfoIcon />,
+  },
+  {
+    checked: false,
+    label: "metres (m)",
+    multiplier: 0.91444,
+    icon: <CheckIcon />,
+  },
+];
 
 const CheckTable = () => {
   return (
@@ -22,7 +80,8 @@ const CheckTable = () => {
         <Heading size="md">Check Table</Heading>
       </CardHeader>
       <CardBody py={2} px={5}>
-        <TableContainer overflowX={"hidden"} overflowY={"auto"} maxH="296px">
+        <TableContainer>
+          {/* <TableContainer overflowX={"hidden"} overflowY={"auto"} maxH="296px"> */}
           <Table variant="simple">
             <TableCaption>Imperial to metric conversion factors</TableCaption>
             <Thead>
@@ -34,94 +93,17 @@ const CheckTable = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr>
-                <Td>
-                  <Checkbox defaultChecked>Marketplace</Checkbox>
-                </Td>
-                <Td>17.5%</Td>
-                <Td>2.458</Td>
-                <Td isNumeric>24.Jan.2021</Td>
-              </Tr>
-              <Tr>
-                <Td>
-                  <Checkbox>Venus PRO</Checkbox>
-                </Td>
-                <Td>10.8%</Td>
-                <Td>1.458</Td>
-                <Td isNumeric>12.Jun.2021</Td>
-              </Tr>
-              <Tr>
-                <Td>
-                  <Checkbox defaultChecked>Uranus Kit</Checkbox>
-                </Td>
-                <Td>21.3%</Td>
-                <Td>1.024</Td>
-                <Td isNumeric>5.Jan.2021</Td>
-              </Tr>
-              <Tr>
-                <Td>
-                  <Checkbox>Venus DS</Checkbox>
-                </Td>
-                <Td>31.5%</Td>
-                <Td>858</Td>
-                <Td isNumeric>7.Mar.2021</Td>
-              </Tr>
-              <Tr>
-                <Td>
-                  <Checkbox>Venus 3D Asset</Checkbox>
-                </Td>
-                <Td>12.2</Td>
-                <Td>258</Td>
-                <Td isNumeric>17.Dec.2021</Td>
-              </Tr>
-              <Tr>
-                <Td>
-                  <Checkbox>Venus 3D Asset</Checkbox>
-                </Td>
-                <Td>12.2</Td>
-                <Td>258</Td>
-                <Td isNumeric>17.Dec.2021</Td>
-              </Tr>
-              <Tr>
-                <Td>
-                  <Checkbox>Venus 3D Asset</Checkbox>
-                </Td>
-                <Td>12.2</Td>
-                <Td>258</Td>
-                <Td isNumeric>17.Dec.2021</Td>
-              </Tr>
-              <Tr>
-                <Td>
-                  <Checkbox>Venus 3D Asset</Checkbox>
-                </Td>
-                <Td>12.2</Td>
-                <Td>258</Td>
-                <Td isNumeric>17.Dec.2021</Td>
-              </Tr>
-              <Tr>
-                <Td>
-                  <Checkbox>Venus 3D Asset</Checkbox>
-                </Td>
-                <Td>12.2</Td>
-                <Td>258</Td>
-                <Td isNumeric>17.Dec.2021</Td>
-              </Tr>
-              <Tr>
-                <Td>
-                  <Checkbox>Venus 3D Asset</Checkbox>
-                </Td>
-                <Td>12.2</Td>
-                <Td>258</Td>
-                <Td isNumeric>17.Dec.2021</Td>
-              </Tr>
-              <Tr>
-                <Td>
-                  <Checkbox>Venus 3D Asset</Checkbox>
-                </Td>
-                <Td>12.2</Td>
-                <Td>258</Td>
-                <Td isNumeric>17.Dec.2021</Td>
-              </Tr>
+              {tableData.map((row, index) => (
+                <Tr key={index}>
+                  <Td>
+                    <Checkbox defaultChecked={row.checked}>Checkbox</Checkbox>
+                  </Td>
+                  <Td>
+                    {row.icon} {row.label}
+                  </Td>
+                  <Td isNumeric>{row.multiplier}</Td>
+                </Tr>
+              ))}
             </Tbody>
           </Table>
         </TableContainer>

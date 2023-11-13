@@ -2,12 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Gnb from "./Gnb";
-import { Heading } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import DividerCus from "../../common/DividerCus";
-
 const Header = () => {
   return (
-    <HeaderWapper>
+    <HeaderWapper left={{ base: "-290px", lg: "0" }}>
       <HeaderStyle as="h1" id="logo">
         <Link to="/">
           <span>horizon</span> free
@@ -18,7 +17,6 @@ const Header = () => {
     </HeaderWapper>
   );
 };
-
 const HeaderStyle = styled(Heading)`
   a {
     display: block;
@@ -36,15 +34,13 @@ const HeaderStyle = styled(Heading)`
     }
   }
 `;
-
-const HeaderWapper = styled.header`
+const HeaderWapper = styled(Box)`
   position: fixed;
   top: 0;
-  left: 0;
   bottom: 0;
   width: 290px;
   padding: 50px 32px;
   background-color: var(--white);
+  transition: left 0.2s ease-in-out;
 `;
-
 export default Header;

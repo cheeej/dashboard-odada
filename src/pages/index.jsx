@@ -1,16 +1,21 @@
 import React from "react";
 import Layout from "../components/layout/Layout";
+import { SimpleGrid, Box } from "@chakra-ui/react";
+import MiniStatistics from "../theme/components/home/MiniStatistics";
 
 const Home = () => {
-<<<<<<< HEAD
   return (
     <Layout title="DashBoard" pagename="DashBoard">
-      <Box></Box>
+      <SimpleGrid columns={[1, 2, 3, null, 6]} spacing={10}>
+        <MiniStatistics />
+        <MiniStatistics />
+        <MiniStatistics />
+        <MiniStatistics />
+        <MiniStatistics />
+        <MiniStatistics />
+      </SimpleGrid>
     </Layout>
   );
-=======
-    return <Layout title="DashBoard" pagename="DashBoard"></Layout>;
->>>>>>> 0036c0c078ba2445154adfb1bed43731653ebee5
 };
 
 export default Home;
